@@ -138,6 +138,7 @@ export default Mixin.create({
   buildFilters(params) {
     let filters = this.get('filters') || {};
     //… customize filters based on params
+    Ember.Logger.debug('params', params);
     /*
     if (!!params.colorParam && params.colorParam !== 'All') {
       filters.color = params.colorParam;
