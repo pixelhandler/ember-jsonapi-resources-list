@@ -7,6 +7,7 @@ to display a list of resources that follow the JSON API 1.0 specification.
 
 [ember-jsonapi-resources]: http://ember-jsonapi-resources.com
 
+[![Build Status](https://travis-ci.org/pixelhandler/ember-jsonapi-resources-list.svg?branch=master)](https://travis-ci.org/pixelhandler/ember-jsonapi-resources-list)
 
 ## Example Use
 
