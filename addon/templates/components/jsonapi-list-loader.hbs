@@ -1,0 +1,8 @@
+{{#if hasMore}}
+  {{#unless loadingMore}}
+    <button class="has-more" {{action "showMore"}}>Show More…</button>
+  {{else}}
+    <button class="is-loading">Loading…</button>
+  {{/unless}}
+{{/if}}
+{{yield}}

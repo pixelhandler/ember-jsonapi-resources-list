@@ -1,0 +1,12 @@
+<div {{action "doSort"}}>
+{{yield}}
+{{! http://tutorialzine.com/2014/12/you-dont-need-icons-here-are-100-unicode-symbols-that-you-can-use/ }}
+
+{{#if isActive}}
+  {{#if isDescending}}
+    <span class="desc">&#x25bc;</span>
+  {{else}}
+    <span class="asc">&#x25b2;</span>
+  {{/if}}
+{{/if}}
+</div>
