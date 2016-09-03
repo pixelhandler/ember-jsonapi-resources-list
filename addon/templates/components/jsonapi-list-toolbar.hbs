@@ -1,0 +1,52 @@
+<div class="ToolBar ToolBar--top flex justify-around">
+  <div class="ToolBar-control flex">
+    <div class="ToolBar-title">
+      <p class="ToolBar-label">Filters</p>
+    </div>
+    {{#each filters as |filter|}}
+      <label class="ToolBar-label">{{humanize filter.name}}</label>
+      {{#power-select
+        placeholder="Choose one…"
+        selected=filter.selected
+        searchEnabled=false
+        onchange=(action "filter" filter.name)
+        options=filter.options as |option|
+      }}
+        {{option}}
+      {{/power-select}}
+    {{/each}}
+    {{yield}}
+  </div>
+
+  <div class="ToolBar-control flex">
+    <div class="ToolBar-title">
+      <p class="ToolBar-label">Sort</p>
+    </div>
+    {{#power-select
+      selected=sortBy.selected
+      searchEnabled=false
+      onchange=(action "sort")
+      options=sortBy.options as |option|
+    }}
+      {{option}}
+    {{/power-select}}
+    <div class="ToolBar-title">
+      <p class="ToolBar-label">Order
+        {{#if isDescending}}
+          <span class="desc">&#x25bc;</span>
+        {{else}}
+          <span class="asc">&#x25b2;</span>
+        {{/if}}
+      </p>
+    </div>
+  </div>
+
+  <div class="ToolBar-control flex">
+    <div class="ToolBar-icon" {{action "search" searchQuery}}>
+      <span class="glyphicons halftone glyphicons-search search-glass"></span>
+  </div>
+    <div class="ToolBar-input">
+      {{input value=searchQuery placeholder=placeholderText enter="search" class="ToolBar-search"}}
+    </div>
+  </div>
+</div>

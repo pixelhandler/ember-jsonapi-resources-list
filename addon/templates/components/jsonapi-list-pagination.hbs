@@ -1,0 +1,36 @@
+<div class="ToolBar flex justify-around ToolBar--bottom">
+  <div class="ToolBar-control flex">
+    <label class="ToolBar-label HelveticaNeueRegular">Per Page</label>
+    {{#power-select
+      options=pageSizes
+      selected=pageSize
+      searchEnabled=false
+      onchange=(action "onPageSizeChange")
+      as |size|
+    }}
+      {{size}}
+    {{/power-select}}
+  </div>
+  <div class="ToolBar-control">
+    {{#if hasMultiplePages}}
+      <label class="ToolBar-label HelveticaNeueRegular">Page</label>
+    {{/if}}
+    {{#if hasFirstPage}}
+      <button class="Btn Btn--default Btn--small" {{action "onFirst"}}>1</button>&nbsp;&hellip;&nbsp;
+    {{/if}}
+    {{#if hasPreviousPage}}
+      <button class="Btn Btn--default Btn--small" {{action "onPrevious"}}>&lt;</button>
+    {{/if}}
+    {{#if hasMultiplePages}}
+      <button class="Btn Btn--primary Btn--small" disabled="disabled">{{pageNumber}}</button>
+    {{/if}}
+    {{#if hasNextPage}}
+      <button class="Btn Btn--default Btn--small" {{action "onNext"}}>&gt;</button>
+    {{/if}}
+    {{#if hasLastPage}}
+      &nbsp;&hellip;&nbsp;<button class="Btn Btn--default Btn--small" {{action "onLast"}}>{{pageTotal}}</button>
+    {{/if}}
+  </div>
+
+  {{yield}}
+</div>
